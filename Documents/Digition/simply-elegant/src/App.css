@@ -1,8 +1,0 @@
-@import url('https://fonts.googleapis.com/css2?family=Cormorant&display=swap');
-
-* { 
-    box-sizing: border-box;
-    font-family: 'Cormorant', serif;
-};
-
-.bg-color-primary { background-color: #F1D6AB;}
