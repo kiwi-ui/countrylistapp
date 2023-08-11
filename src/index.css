@@ -1,2 +1,6 @@
-* {box-sizing: border-box;}
+@import url('https://fonts.googleapis.com/css2?family=Almarai&display=swap');
+* {
+    box-sizing: border-box;
+    font-family: 'Almarai', sans-serif;
+}
 .z10 {z-index: 10;}
