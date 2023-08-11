@@ -3,11 +3,7 @@ const Dashboard = lazy(() => import('./pages/Dashboard'))
 
 const App:React.FC = () => {
   return (
-    <>
-    <div>
       <Dashboard />
-    </div>
-    </>
   )
 }
 
