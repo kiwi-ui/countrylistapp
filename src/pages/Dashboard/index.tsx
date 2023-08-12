@@ -57,7 +57,7 @@ const Dashboard: React.FC = () => {
                 	<div className="row">
                 		<div className="col-lg-6 my-3 py-5 d-flex flex-column gap-4 align-items-lg-start align-items-center justify-content-center">
                     		<h3 className="fs-2 text-white fw-bold">Lets See The World Together</h3>
-							<p className="text-white text-opacity-75 text-center text-md-start">Lorem ipsum dolor sit amet consectetur adipisicing elit. Placeat reprehenderit fugiat similique dolorem incidunt voluptatibus asperiores nobis? Deserunt, placeat rem explicabo provident quo adipisci dolores itaque delectus accusamus temporibus cupiditate doloribus assumenda possimus.</p>
+							<p className="text-white text-opacity-75 text-center text-md-start">"Global Odyssey: Embark on an Extraordinary Expedition Through the Marvels of Our Planet, Unveiling the Richness of Capitals, Cultures, and Languages in Every Enchanting Country!"</p>
 							<button className={`btn ${style['bg-btn']} ${style['shadow-btn']} fw-semibold`}>Get Started</button>
 						</div>
 
