@@ -5,11 +5,13 @@ export const countryQuery = () => {
     query: 
         `query {
             countries {
-            code
-            name
-            emojiU
-            capital
-            currency
+                code
+                name
+                emojiU
+                capital
+                currency
+                languages {name}
+                continent {name}
             }
         }`
     });
