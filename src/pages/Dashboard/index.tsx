@@ -44,17 +44,16 @@ const Dashboard: React.FC = () => {
         <NavBar/>
         
         <section className="mt-5">
-            <div className="bg-primary">
+            <div className={`${style['bg-hero']}`}>
               <div className="container">
                 <div className="row">
-                  <div className="col-6 py-5 d-flex flex-column gap-4 align-items-start">
-                    <h3>Lets See The World Together</h3>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Placeat reprehenderit fugiat similique dolorem incidunt voluptatibus asperiores nobis? Deserunt, placeat rem explicabo provident quo adipisci dolores itaque delectus accusamus temporibus cupiditate doloribus assumenda possimus.</p>
-                    <button className="btn-lg w-25">Get Started</button>
+                  <div className="col-lg-6 my-3 py-5 d-flex flex-column gap-4 align-items-lg-start align-items-center justify-content-center">
+                    <h3 className="fs-2 text-white fw-bold">Lets See The World Together</h3>
+                    <p className="text-white text-opacity-75 text-center text-md-start">Lorem ipsum dolor sit amet consectetur adipisicing elit. Placeat reprehenderit fugiat similique dolorem incidunt voluptatibus asperiores nobis? Deserunt, placeat rem explicabo provident quo adipisci dolores itaque delectus accusamus temporibus cupiditate doloribus assumenda possimus.</p>
+                    <button className={`btn ${style['bg-btn']} ${style['shadow-btn']} fw-semibold`}>Get Started</button>
                   </div>
-
                   <div className="col-lg-6 d-lg-flex d-none justify-content-end">
-                    <img className="w-75" src={hero} alt="globe"/>
+                    <img className="w-100" src={hero} alt="globe"/>
                   </div>
                 </div>
               </div>
@@ -68,7 +67,7 @@ const Dashboard: React.FC = () => {
                     
                     return (
                       <div className="col-lg-4 col-md-6 mb-3 flex-wrap" key={country.code}>
-                        <div className="card border border-dark">
+                        <div className="card">
                           <div className={ `card-img-top ${style[`card-head`]} text-center d-flex align-items-center justify-content-center position-relative` }>
                             <span className="mb-3 z10 text-white" style={{ fontSize: '3rem' }} role="img" aria-label={`Flag of ${country.name}`} dangerouslySetInnerHTML={{ __html: flag }} />
                           </div>

@@ -5,7 +5,6 @@
     background-size: cover;
     height: 25vh;
 }
-
 .card-head:before {
     background-color: rgba(0,0,0,.5);
     position: absolute;
@@ -13,4 +12,12 @@
     height: 100%;
     width: 100%;
     z-index: 0;
+}
+.bg-hero { 
+    background-image:linear-gradient(#466eb6, #8a9bb9);
+    /* background-image:linear-gradient(red, yellow); */
+}
+.bg-btn {background-color: white;}
+.shadow-btn {
+    box-shadow: 5px 10px rgb(255, 255, 255, 0.5);
 }
