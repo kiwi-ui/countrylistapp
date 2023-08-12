@@ -5,14 +5,18 @@ import style from './index.module.css';
 import hero from '../../assets/hero.png'
 import SearchBar from '../../components/SearchBar';
 import Footer from '../../components/Footer';
+import DetailModal from '../../components/DetailModal';
 
 interface Country {
-  name: string,
-  capital: string,
-  code: string,
-  currency: string,
-  emojiU: string
+	name: string
+	capital: string;
+	currency: string;
+	languages: { name: string }[]; 
+	continent: { name: string };
+	code: string;
+	emojiU: string;
 }
+  
 
 const Dashboard: React.FC = () => {
     const itemsPerPage = 20;
@@ -27,6 +31,7 @@ const Dashboard: React.FC = () => {
         try {
           const { data } = await countryQuery();
           setCountries(data.data.countries);
+		  console.log(data)
         } catch (error) {
           console.error(error);
         }
@@ -40,12 +45,23 @@ const Dashboard: React.FC = () => {
     const endIndex = startIndex + itemsPerPage;
     const currentCountries = filteredCountries.slice(startIndex, endIndex);
 
-    return (
+	const [selectedCountry, setSelectedCountry] = useState<Country>();
+	const [hideModal, setHideModal] = useState(false)
+    const handleCountryClick = (country: Country) => {
+		setSelectedCountry(country);
+		setHideModal(e => !e);
+	}
+	const closeCountryModal = () => {
+		setHideModal(e => !e)
+	}
+	return (
         <>
             <section>
             	<NavBar/>
             </section>
-
+			{ selectedCountry && (
+				<DetailModal country={selectedCountry} show={hideModal} onHide={closeCountryModal} />
+    		)}
             <section className={`${style['bg-hero']} mt-5`}>
                 <div className="container">
                 	<div className="row">
@@ -71,7 +87,7 @@ const Dashboard: React.FC = () => {
 						const flag = convertUnicodeToHTMLEntity(country.emojiU)
 							
 						return (
-							<div className="col-lg-4 col-md-6 mb-3 flex-wrap" key={country.code}>
+							<div className="col-lg-4 col-md-6 mb-3 flex-wrap" key={country.code} onClick={() => handleCountryClick(country)} >
 								<div className="card rounded shadow">
 									<div className={ `card-img-top ${style[`card-head`]} text-center d-flex align-items-center justify-content-center position-relative` }>
 										<span className="mb-3 z10 text-white" style={{ fontSize: '3rem' }} role="img" aria-label={`Flag of ${country.name}`} dangerouslySetInnerHTML={{ __html: flag }} />
@@ -88,6 +104,7 @@ const Dashboard: React.FC = () => {
 											<p className="">{country.name}</p>
 											<p className="card-text">{country.capital}</p>
 											<p className="mb-0">{country.currency}</p>
+											{/* <p className="mb-0">{country.languages}</p> */}
 										</div>
 									</div>
 								</div>
