@@ -1,29 +1,20 @@
-import { useState } from 'react';
-import SearchBar from '../SearchBar'
-import {HiSearchCircle} from 'react-icons/hi';
+import {BiSearchAlt2} from 'react-icons/bi';
+import {RiAccountCircleLine} from 'react-icons/ri';
 
-interface SearchBarProps {
-    searchQuery: string;
-    setSearchQuery: (query: string) => void;
-}
-
-const NavBar: React.FC<SearchBarProps> = ({ searchQuery, setSearchQuery }) => {
-  const [toggleSearch, setToggleSearch] = useState(false);
-  const showSearchbar = (e: any) => {
-    e.preventDefault();
-    setToggleSearch(e => !e);
-  }
+const NavBar: React.FC = () => {
   return (
-    <nav className="navbar navbar-expand-lg bg-primary border border-bottom fixed-top w-100 z10">
-        <div className="container">
-            <p className="fs-4 mb-0">CrossOver</p>
-            <form className="d-flex" role="search">
-                <button className="btn" onClick={showSearchbar}><HiSearchCircle className="color-primary fs-3"/></button>
-            </form>
+    <>
+        <nav className="navbar fixed-top bg-white z10">
+            <div className="container">
+                <a className="fs-4 mb-0 borel mt-3 fw-semibold navbar-brand" href='_blank' rel='norefferer'>CrossOver</a>
 
-            {toggleSearch && <SearchBar searchQuery={searchQuery} setSearchQuery={setSearchQuery} /> }
-        </div>
-    </nav>
+                <form className="d-flex align-items-center gap-2" role="search">
+                    <BiSearchAlt2 className="fs-4 fw-bold" />
+                    <RiAccountCircleLine className="fs-3" />
+                </form>
+            </div>
+        </nav>
+    </>
   )
 }
 

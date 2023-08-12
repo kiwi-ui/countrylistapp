@@ -1,4 +1,5 @@
 import React from 'react';
+import style from './index.module.css';
 
 interface SearchBarProps {
   searchQuery: string;
@@ -6,7 +7,7 @@ interface SearchBarProps {
 }
 
 const SearchBar: React.FC<SearchBarProps> = ({ searchQuery, setSearchQuery }) => {
-  return ( <input className="form-control me-2" type="search" aria-label="Search" placeholder="Search country" value={ searchQuery } onChange={(e) => setSearchQuery(e.target.value)} /> );
+  return ( <input className={ `${style['h-searchbar']} px-4 form-control translate-middle start-50 position-relative shadow` } type="search" aria-label="Search" placeholder="Search country" value={ searchQuery } onChange={(e) => setSearchQuery(e.target.value)} /> );
 };
 
 export default SearchBar;
