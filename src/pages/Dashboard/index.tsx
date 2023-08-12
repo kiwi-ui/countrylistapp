@@ -6,20 +6,11 @@ import hero from '../../assets/hero.png'
 import SearchBar from '../../components/SearchBar';
 import Footer from '../../components/Footer';
 import DetailModal from '../../components/DetailModal';
-
-interface Country {
-	name: string
-	capital: string;
-	currency: string;
-	languages: { name: string }[]; 
-	continent: { name: string };
-	code: string;
-	emojiU: string;
-}
+import { CountryModel } from '../../Models/CountryModel';
 
 const Dashboard: React.FC = () => {
     const itemsPerPage = 20;
-    const [countries, setCountries] = useState<Country[]>([]);
+    const [countries, setCountries] = useState<CountryModel[]>([]);
     const [searchQuery, setSearchQuery] = useState<string>('');
     const [currentPage, setCurrentPage] = useState<number>(1);
 
@@ -44,9 +35,9 @@ const Dashboard: React.FC = () => {
     const endIndex = startIndex + itemsPerPage;
     const currentCountries = filteredCountries.slice(startIndex, endIndex);
 
-	const [selectedCountry, setSelectedCountry] = useState<Country>();
+	const [selectedCountry, setSelectedCountry] = useState<CountryModel>();
 	const [hideModal, setHideModal] = useState(false)
-    const handleCountryClick = (country: Country) => {
+    const handleCountryClick = (country: CountryModel) => {
 		setSelectedCountry(country);
 		setHideModal(e => !e);
 	}
@@ -58,10 +49,10 @@ const Dashboard: React.FC = () => {
             <section>
             	<NavBar/>
             </section>
-			{ selectedCountry && (
-				<DetailModal country={selectedCountry} show={hideModal} onHide={closeCountryModal} />
-    		)}
-            <section className={`${style['bg-hero']} mt-5`}>
+
+			{ selectedCountry && ( <DetailModal country={selectedCountry} show={hideModal} onHide={closeCountryModal} />)}
+            
+			<section className={`${style['bg-hero']} mt-5`}>
                 <div className="container">
                 	<div className="row">
                 		<div className="col-lg-6 my-3 py-5 d-flex flex-column gap-4 align-items-lg-start align-items-center justify-content-center">
@@ -120,7 +111,6 @@ const Dashboard: React.FC = () => {
 				))}
 				</div>
 			</section>
-
         <Footer/>
       </>
     )

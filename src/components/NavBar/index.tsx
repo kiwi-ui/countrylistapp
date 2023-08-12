@@ -4,7 +4,7 @@ import {RiAccountCircleLine} from 'react-icons/ri';
 const NavBar: React.FC = () => {
   return (
     <>
-        <nav className="navbar fixed-top bg-white z10">
+		<nav className="navbar fixed-top bg-white z10">
             <div className="container">
                 <a className="fs-4 mb-0 borel mt-3 fw-semibold navbar-brand" href='_blank' rel='norefferer'>CrossOver</a>
 
