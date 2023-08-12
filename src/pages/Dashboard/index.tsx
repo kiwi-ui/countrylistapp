@@ -16,7 +16,6 @@ interface Country {
 	code: string;
 	emojiU: string;
 }
-  
 
 const Dashboard: React.FC = () => {
     const itemsPerPage = 20;
@@ -88,13 +87,13 @@ const Dashboard: React.FC = () => {
 							
 						return (
 							<div className="col-lg-4 col-md-6 mb-3 flex-wrap" key={country.code} onClick={() => handleCountryClick(country)} >
-								<div className="card rounded shadow">
+								<div className="card rounded-3 shadow">
 									<div className={ `card-img-top ${style[`card-head`]} text-center d-flex align-items-center justify-content-center position-relative` }>
 										<span className="mb-3 z10 text-white" style={{ fontSize: '3rem' }} role="img" aria-label={`Flag of ${country.name}`} dangerouslySetInnerHTML={{ __html: flag }} />
 									</div>
 
 									<div className="px-3 row">
-										<div className="col-4 border-end border-dark py-4 fw-bold">
+										<div className="col-4 border-end border-dark border-opacity-25 py-4 fw-bold">
 											<p>Name</p>
 											<p>Capital</p>
 											<p className="mb-0">Currency</p>
@@ -104,7 +103,6 @@ const Dashboard: React.FC = () => {
 											<p className="">{country.name}</p>
 											<p className="card-text">{country.capital}</p>
 											<p className="mb-0">{country.currency}</p>
-											{/* <p className="mb-0">{country.languages}</p> */}
 										</div>
 									</div>
 								</div>
