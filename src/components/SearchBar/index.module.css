@@ -1,0 +1,11 @@
+.h-searchbar {
+    height: 64px;
+    width: 90%;
+}
+
+@media (min-width: 768px) {
+    .h-searchbar {
+        height: 64px;
+        width: 75%;
+    }
+}
