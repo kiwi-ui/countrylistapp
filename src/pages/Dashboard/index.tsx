@@ -57,7 +57,7 @@ const Dashboard: React.FC = () => {
                 	<div className="row">
                 		<div className="col-lg-6 my-3 py-5 d-flex flex-column gap-4 align-items-lg-start align-items-center justify-content-center">
                     		<h3 className="fs-2 text-white fw-bold">Lets See The World Together</h3>
-							<p className="text-white text-opacity-75 text-center text-md-start">"Global Odyssey: Embark on an Extraordinary Expedition Through the Marvels of Our Planet, Unveiling the Richness of Capitals, Cultures, and Languages in Every Enchanting Country!"</p>
+							<p className="text-white text-opacity-75 text-center text-md-start">Global Odyssey: Embark on an Extraordinary Expedition Through the Marvels of Our Planet, Unveiling the Richness of Capitals, Cultures, and Languages in Every Enchanting Country!</p>
 							<button className={`btn ${style['bg-btn']} ${style['shadow-btn']} fw-semibold`}>Get Started</button>
 						</div>
 
@@ -75,24 +75,23 @@ const Dashboard: React.FC = () => {
 					<div className="row">
 					  {currentCountries.map((country) => {
 						const flag = convertUnicodeToHTMLEntity(country.emojiU)
-							
 						return (
 							<div className="col-lg-4 col-md-6 mb-3 flex-wrap" key={country.code} onClick={() => handleCountryClick(country)} >
 								<div className="card rounded-3 shadow">
 									<div className={ `card-img-top ${style[`card-head`]} text-center d-flex align-items-center justify-content-center position-relative` }>
-										<span className="mb-3 z10 text-white" style={{ fontSize: '3rem' }} role="img" aria-label={`Flag of ${country.name}`} dangerouslySetInnerHTML={{ __html: flag }} />
+										<span className="mb-3 z5 text-white w-100" role="img" aria-label={`Flag of ${country.name}`} dangerouslySetInnerHTML={{ __html: flag }} />
 									</div>
 
 									<div className="px-3 row">
 										<div className="col-4 border-end border-dark border-opacity-25 py-4 fw-bold">
-											<p>Name</p>
-											<p>Capital</p>
+											<p className="mb-0">Name</p>
+											<p className="mb-0">Capital</p>
 											<p className="mb-0">Currency</p>
 										</div>
 										
 										<div className='col-8 pe-0 py-4'>
-											<p className="">{country.name}</p>
-											<p className="card-text">{country.capital}</p>
+											<p className="mb-0">{country.name}</p>
+											<p className="card-text mb-0">{country.capital}</p>
 											<p className="mb-0">{country.currency}</p>
 										</div>
 									</div>
